@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="./Logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - G-Throne Hotel & Suite</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .carousel {
+            position: relative;
+            height: calc(100vh - 64px);
+            overflow: hidden;
+            border-radius: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .carousel img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            border-radius: 15px;
+        }
+        .carousel img.active {
+            opacity: 1;
+        }
+        .carousel-text-top, .carousel-text-bottom {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+        .carousel-text-top {
+            top: 20%;
+        }
+        .carousel-text-bottom {
+            bottom: 10%;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .carousel-button:hover {
+            background-color: rgba(236, 185, 16, 0.7);
+        }
+        .carousel-button.prev {
+            left: 10px;
+        }
+        .carousel-button.next {
+            right: 10px;
+        }
+        .footer {
+            width: 100%;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .social-media-links {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .social-media-links a {
+            margin: 0 3px;
+        }
+        .social-media-links img {
+            height: 20px;
+            width: 20px;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen bg-white-800 text-white">
+    <!-- Navigation Bar -->
+    <header class="w-full bg-gray-800 shadow-md">
+        <div class="container mx-auto flex items-center justify-between p-4">
+            <div class="flex items-center space-x-4">
+                <img src="./Logo.png" alt="Business Logo" class="h-12 w-12">
+                <span class="text-xl font-bold text-white hover:text-yellow-400 transition duration-300">G-Throne Hotel & Suite</span>
+            </div>
+            <nav class="hidden md:flex space-x-4">
+                <a href="./index.html" class="text-white hover:text-yellow-400 transition duration-300">Home</a>
+                <a href="./About Us.html" class="text-white hover:text-yellow-400 transition duration-300">About Us</a>
+                <a href="./Visit Us.html" class="text-white hover:text-yellow-400 transition duration-300">Visit Us</a>
+            </nav>
+            <button class="md:hidden text-white hover:text-yellow-400 transition duration-300" onclick="toggleMenu()">Menu</button>
+        </div>
+        <nav id="mobileMenu" class="hidden md:hidden flex flex-col space-y-2 p-4 bg-gray-900 shadow-md">
+            <a href="./index.html" class="text-white hover:text-yellow-400 transition duration-300">Home</a>
+            <a href="./About Us.html" class="text-white hover:text-yellow-400 transition duration-300">About Us</a>
+            <a href="./Visit Us.html" class="text-white hover:text-yellow-400 transition duration-300">Visit Us</a>
+        </nav>
+    </header>
+
+    <!-- Carousel -->
+    <div class="carousel relative">
+        <img src="image1.png" alt="Image 1" class="active">
+        <img src="image2.png" alt="Image 2">
+        <img src="image3.png" alt="Image 3">
+        <img src="image4.png" alt="Image 4">
+        <img src="image5.png" alt="Image 5">
+        <img src="image6.png" alt="Image 6">
+        <img src="image7.png" alt="Image 7">
+        <img src="image8.png" alt="Image 8">
+        <img src="image9.png" alt="Image 9">
+        <img src="image10.png" alt="Image 10">
+        <div id="carouselTextTop" class="carousel-text-top absolute inset-x-0 top-20 text-white text-2xl font-bold text-center">Welcome to G-Throne Hotel and Suite</div>
+        <div class="carousel-text-bottom absolute inset-x-0 bottom-10 text-white text-2xl font-bold text-center" id="carouselTextBottom">Exclusive Class, where luxury meets comfort.</div>
+        <button class="carousel-button prev left-4 bg-white rounded-full p-2 shadow-lg hover:bg-yellow-400 transition duration-300" onclick="showPrevImage()">&#10094;</button>
+        <button class="carousel-button next right-4 bg-white rounded-full p-2 shadow-lg hover:bg-yellow-400 transition duration-300" onclick="showNextImage()">&#10095;</button>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="w-full bg-gray-800 text-gray-300 py-4">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+            <div class="flex space-x-3 w-full md:w-auto justify-center md:justify-start">
+                <a href="#"><img src="./linkedin logo_icon.png" alt="linkedin" class="h-5 w-5"></a>
+                <a href="https://www.facebook.com/p/G-Throne-Hotel-And-Suites-100057173241358/"><img src="./facebook logo_icon.png" alt="facebook" class="h-5 w-5"></a>
+                <a href="#"><img src="./instagram logo_icon.png" alt="instagram" class="h-5 w-5"></a>
+                <a href="#"><img src="./youtube logo_icon.png" alt="youtube" class="h-5 w-5"></a>
+                <a href="https://x.com/g_hotels?lang=en"><img src="./x_twitter logo_icon.png" alt="x_twitter_new" class="h-5 w-5"></a>
+                <a href="#"><img src="./whatsapp logo_icon.png" alt="whatsapp" class="h-5 w-5"></a>
+            </div>
+            <div class="text-white w-full md:w-auto text-center md:text-right font-bold">
+                &copy; G-Throne Hotel & Suite 2024.
+            </div>
+            <div class="text-sm w-full md:w-auto text-center md:text-right">
+                Powered By: ieEnterprises
+            </div>
+        </div>
+    </footer>
+
+    
+
+    <!-- Carousel Script -->
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.carousel img');
+        const totalImages = images.length;
+        const bottomTexts = 
+        [   
+            "Exclusive Class, where luxury meets comfort.",
+            "Experience unparalleled hospitality tailored just for you.",
+            "Immerse yourself in an oasis of tranquility and elegance.",
+            "Our dedicated staff is here to make your stay unforgettable.",
+            "From exquisite rooms to world-class services, indulge yourself.",
+            "Discover fine dining experiences crafted to perfection.",
+            "Creating memories that last, with exceptional service.",
+            "Our spaces are designed for your comfort and relaxation.",
+            "Experience the heart of hospitality in every moment.",
+            "Where sophistication meets the warmth of true hospitality."
+        ];
+
+        function updateCarouselText() {
+            document.getElementById('carouselTextBottom').textContent = bottomTexts[currentIndex];
+            const topText = document.getElementById('carouselTextTop');
+            topText.style.display = currentIndex === 0 ? 'block' : 'none';
+        }
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalImages;
+            images[currentIndex].classList.add('active');
+            updateCarouselText();
+        }
+
+        function showPrevImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            images[currentIndex].classList.add('active');
+            updateCarouselText();
+        }
+
+        setInterval(showNextImage, 5000);
+
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
